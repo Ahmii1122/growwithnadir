@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,8 +13,20 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-3 shadow-sm' : 'bg-white py-5'}`}>
+    <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-5 shadow-sm' : 'bg-white py-5'}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary/20">
@@ -34,9 +47,55 @@ const Navbar: React.FC = () => {
           </a>
         </nav>
         
-        <button className="md:hidden text-background-dark">
+        <button onClick={() => setIsMenuOpen(true)} className="md:hidden text-background-dark">
           <span className="material-symbols-outlined text-3xl">menu</span>
         </button>
+      </div>
+
+      {/* Full Screen Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 bg-background-dark/95 backdrop-blur-xl z-[100] transition-all duration-500 flex flex-col items-center justify-center md:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+      >
+        <button 
+          onClick={() => setIsMenuOpen(false)} 
+          className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10"
+        >
+          <span className="material-symbols-outlined text-3xl">close</span>
+        </button>
+
+        <div className={`flex flex-col items-center justify-center gap-10 w-full max-w-sm transition-all duration-500 delay-100 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
+          <a 
+            onClick={() => setIsMenuOpen(false)} 
+            className="text-4xl font-black text-white hover:text-primary hover:scale-110 active:scale-95 transition-all outline-none" 
+            href="#about"
+          >
+            About
+          </a>
+          <a 
+            onClick={() => setIsMenuOpen(false)} 
+            className="text-4xl font-black text-white hover:text-primary hover:scale-110 active:scale-95 transition-all outline-none" 
+            href="#results"
+          >
+            Results
+          </a>
+          <a 
+            onClick={() => setIsMenuOpen(false)} 
+            className="text-4xl font-black text-white hover:text-primary hover:scale-110 active:scale-95 transition-all outline-none" 
+            href="#strategy"
+          >
+            Strategy
+          </a>
+          
+          <div className="w-full h-px bg-white/10 my-4"></div>
+
+          <a 
+            onClick={() => setIsMenuOpen(false)}
+            href="#booking"
+            className="bg-primary text-white text-2xl font-black py-5 px-12 rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/30 w-full text-center outline-none"
+          >
+            Book Free Call
+          </a>
+        </div>
       </div>
     </header>
   );
