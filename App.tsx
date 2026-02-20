@@ -9,8 +9,6 @@ import ValueProposition from './components/ValueProposition';
 import Booking from './components/Booking';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
-import AISidebar from './components/AISidebar';
-
 const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col relative">
@@ -25,9 +23,6 @@ const App: React.FC = () => {
         <FinalCTA />
       </main>
       <Footer />
-      
-      {/* AI Growth Consultant Trigger Widget */}
-      <AISidebar />
     </div>
   );
 };
