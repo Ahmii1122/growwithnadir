@@ -4,8 +4,8 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <section className="relative pt-16 pb-24 px-6 md:px-16 overflow-hidden bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="z-10 relative">
+      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center">
+        <div className="z-10 relative flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-8">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -14,15 +14,15 @@ const Hero: React.FC = () => {
             Performance Growth Partner
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-black text-background-dark leading-[1.05] tracking-tight mb-8">
+          <h1 className="text-5xl md:text-7xl font-black text-background-dark leading-[1.05] tracking-tight mb-8 text-center mx-auto">
             Turn Your Marketing Into a <span className="text-primary">Revenue Machine</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-background-dark/60 leading-relaxed mb-10 max-w-xl font-medium">
+          <p className="text-lg md:text-xl text-background-dark/60 leading-relaxed mb-10 max-w-xl font-medium text-center mx-auto">
             I help ecommerce brands & founders scale using performance marketing & growth systems. Join the elites generating millions in trackable sales.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 mx-auto">
             <a 
               href="#booking"
               className="bg-primary text-white text-lg font-black py-4 px-10 rounded-lg hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-primary/30 text-center"
@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
             </a>
           </div>
           
-          <div className="flex items-center gap-8 py-6 border-t border-gray-100">
+          <div className="flex items-center justify-center gap-8 py-6 border-t border-gray-100 mx-auto">
             <div className="flex flex-col">
               <span className="text-3xl font-black text-primary">$3M+</span>
               <span className="text-[10px] font-bold text-background-dark/40 uppercase tracking-[0.2em] mt-1">Revenue Generated</span>
@@ -49,6 +49,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
+        {/* 
         <div className="relative">
           <div className="aspect-[4/5] rounded-[2rem] bg-gray-100 overflow-hidden shadow-2xl relative group">
             <img 
@@ -63,10 +64,10 @@ const Hero: React.FC = () => {
               <p className="mt-4 text-sm font-black text-primary tracking-wide">— E-commerce Founder, UK Market</p>
             </div>
           </div>
-          {/* Decorative Blooms */}
           <div className="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10"></div>
           <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -z-10"></div>
         </div>
+        */}
       </div>
     </section>
   );
