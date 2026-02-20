@@ -18,15 +18,15 @@ const Footer: React.FC = () => {
         </p>
         
         <div className="flex justify-center flex-wrap gap-10 text-sm font-black uppercase tracking-widest text-background-dark/80">
-          <a className="hover:text-primary transition-all flex items-center gap-2 group" href="#">
+          <a className="hover:text-primary transition-all flex items-center gap-2 group" href="https://www.linkedin.com/in/nadirmahmood2496/" target="_blank" rel="noopener noreferrer">
             <span className="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-primary transition-colors"></span>
             LinkedIn
           </a>
-          <a className="hover:text-primary transition-all flex items-center gap-2 group" href="#">
+          <a className="hover:text-primary transition-all flex items-center gap-2 group" href="http://web.facebook.com/profile.php?id=61588391405568" target="_blank" rel="noopener noreferrer">
             <span className="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-primary transition-colors"></span>
-            Twitter
+            Facebook
           </a>
-          <a className="hover:text-primary transition-all flex items-center gap-2 group" href="#">
+          <a className="hover:text-primary transition-all flex items-center gap-2 group" href="https://www.instagram.com/growwithnadirr/" target="_blank" rel="noopener noreferrer">
             <span className="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-primary transition-colors"></span>
             Instagram
           </a>
